@@ -1,6 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Required to fetch the country list from CountriesNow and the flag images
+         from flagcdn. This permission is present only in the debug and profile
+         manifests that Flutter generates, so without it here release builds have
+         no network access at all and fail with a socket exception.
+    -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
-        android:label="country_trivia"
+        android:label="Country Trivia"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

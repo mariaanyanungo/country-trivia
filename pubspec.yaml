@@ -1,5 +1,5 @@
 name: country_trivia
-description: "A new Flutter project."
+description: "Flutter country flag trivia — identify a country from its flag, scored 10/8/5 across three attempts, with progress and score persisted across restarts."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -34,6 +34,25 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+
+  # State management and dependency injection. Binds the QuizViewModel
+  # (ChangeNotifier) to the widget tree for the MVVM setup.
+  provider: ^6.1.5
+
+  # REST client for the CountriesNow country list.
+  http: ^1.6.0
+
+  # Local persistence for score and solved countries. See docs/master_plan.md
+  # section 4: use SharedPreferencesWithCache, not the deprecated
+  # SharedPreferences singleton.
+  shared_preferences: ^2.5.5
+
+  # Disk + memory caching for flag images, so an answer tap does not re-decode
+  # the PNG and flicker the flag.
+  cached_network_image: ^4.0.3
+
+  # Value equality for domain entities and view state.
+  equatable: ^3.0.0
 
 dev_dependencies:
   flutter_test:
